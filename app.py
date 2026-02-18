@@ -7,6 +7,10 @@ import random
 import time
 import tempfile
 from datetime import datetime
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Optional imports with fallback
 try:
@@ -127,10 +131,25 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # --- CONFIGURATION ---
-# 🔑 PASTE YOUR API KEY HERE
-# Even if this key hits a limit, the code will now use the "Backup Mode" so it won't crash.
-os.environ["GOOGLE_API_KEY"] = "PASTE_YOUR_API_KEY_HERE"
-genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
+# 🔑 Load API Key from environment variables (secure way)
+api_key = os.getenv("GOOGLE_API_KEY")
+
+if not api_key or api_key == "your_actual_api_key_here":
+    st.error("""
+    ❌ **API Key Not Configured**
+    
+    Please set up your Google Gemini API key:
+    
+    1. Get your free API key from: https://makersuite.google.com/app/apikey
+    2. Create a `.env` file in the project root (copy from `.env.example`)
+    3. Add your key: `GOOGLE_API_KEY=your_key_here`
+    4. Restart the app
+    
+    **Security Note:** The `.env` file is in `.gitignore` and will NEVER be committed to Git.
+    """)
+    st.stop()
+
+genai.configure(api_key=api_key)
 
 # --- ADVANCED TRANSLATOR FUNCTION ---
 def translate_text(text, source_lang="auto", target_lang="en"):

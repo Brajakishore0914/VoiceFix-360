@@ -4,3 +4,4 @@ Pillow==10.1.0
 SpeechRecognition==3.10.1
 google-cloud-translate==3.14.0
 PyAudio==0.2.13
+python-dotenv==1.0.0
