@@ -1,0 +1,64 @@
+# Environment variables
+.env
+.env.local
+.streamlit/secrets.toml
+
+# API Keys and credentials
+**/secrets.toml
+**/credentials.json
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Streamlit
+.streamlit/cache/
+.streamlit/logger.log
+
+# Temporary files
+*.tmp
+*.temp
+__pycache__
+.pytest_cache/
+
+# Audio/Media temp files
+*.wav
+*.mp3
+temp_audio_*
+
+# Test files
+test_*.py
+*_test.py

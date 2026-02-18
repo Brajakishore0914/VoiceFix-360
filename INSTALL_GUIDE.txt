@@ -1,0 +1,184 @@
+🚀 VOICEFIX 360 - INSTALLATION GUIDE
+=====================================
+
+Follow these steps to get your VoiceFix 360 application running!
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 1: INSTALL PYTHON REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+Open PowerShell or Command Prompt and run:
+
+    cd c:\Users\tapas\OneDrive\Desktop\VoiceFix_Project
+    
+    pip install -r requirements.txt
+
+⚠️ WINDOWS USERS: If PyAudio installation fails, use this instead:
+
+    pip install pipwin
+    pipwin install PyAudio
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 2: SET UP GOOGLE API KEY
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ API Key is already configured in: .streamlit/secrets.toml
+
+If you need to update it:
+1. Go to: https://aistudio.google.com/app/apikey
+2. Copy your API key
+3. Edit .streamlit/secrets.toml
+4. Update the line: google_api_key = "YOUR_KEY_HERE"
+5. Save the file
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 3: RUN THE APPLICATION
+═══════════════════════════════════════════════════════════════════════════════
+
+In the same PowerShell/Command Prompt, run:
+
+    streamlit run app.py
+
+🎉 The app should automatically open in your browser at:
+    http://localhost:8501
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 4: VERIFY MICROPHONE ACCESS
+═══════════════════════════════════════════════════════════════════════════════
+
+For voice recording to work:
+
+Windows 10/11:
+├─ Settings → Privacy & Security → Microphone
+├─ Check that microphone is enabled for your applications
+├─ Make sure Python/Streamlit has microphone permission
+├─ Restart app after enabling
+
+═══════════════════════════════════════════════════════════════════════════════
+✅ YOU'RE ALL SET!
+
+Your VoiceFix 360 application is ready to use. Start with:
+
+1. Read QUICK_START.txt for feature overview
+2. Upload a screenshot in "Quick Support" tab
+3. Record your issue (or type manually)
+4. Click "Generate Ticket"
+5. Get AI-powered solution instantly!
+
+═══════════════════════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+Issue: "ModuleNotFoundError"
+→ Solution: pip install -r requirements.txt (again)
+
+Issue: Microphone not working
+→ Solution: Check Windows microphone permissions
+→ Fallback: Use manual text input
+
+Issue: API Key error
+→ Solution: Check API key in .streamlit/secrets.toml
+→ Generate new key at https://aistudio.google.com/app/apikey
+
+Issue: "ModuleNotFoundError: No module named 'PyAudio'"
+→ Solution: Use pipwin:
+   pip install pipwin
+   pipwin install PyAudio
+
+═══════════════════════════════════════════════════════════════════════════════
+FILES INCLUDED IN PROJECT
+═══════════════════════════════════════════════════════════════════════════════
+
+app.py                    - Main application (enhanced)
+requirements.txt          - Python dependencies
+README.md                 - Detailed documentation
+QUICK_START.txt          - Feature quick reference
+INSTALL_GUIDE.txt        - This file!
+CONFIG_REFERENCE.py      - Configuration options
+.streamlit/secrets.toml  - API key configuration
+.gitignore               - Git ignore rules
+
+═══════════════════════════════════════════════════════════════════════════════
+FEATURES INCLUDED
+═══════════════════════════════════════════════════════════════════════════════
+
+✨ Enhanced Features:
+
+✅ Real Voice Recording
+   - Live audio input (15 seconds)
+   - Multi-language support (English, Hindi, Odia)
+   - Auto-language detection
+   - Clear audio feedback
+
+✅ Advanced Translator
+   - Hindi ↔ English ↔ Odia
+   - AI-powered translation
+   - Technical terminology handling
+
+✅ Interactive UI
+   - 3-Tab interface (Quick Support, Translator, Analytics)
+   - Dark/Light theme
+   - Real-time progress tracking
+   - Animated processing
+
+✅ Advanced Analytics
+   - Ticket history tracking
+   - Session statistics
+   - API status monitoring
+   - Confidence scores
+
+✅ Export Options
+   - JSON export
+   - Text export
+   - Ready for support team distribution
+
+═══════════════════════════════════════════════════════════════════════════════
+QUICK FEATURE TEST
+═══════════════════════════════════════════════════════════════════════════════
+
+After launching (streamlit run app.py):
+
+1. Test Voice Recording:
+   - Click Quick Support tab
+   - Click "START REC"
+   - Speak for a few seconds
+   - Check if transcript appears
+
+2. Test Translator:
+   - Click Translator Studio tab
+   - Paste sample text
+   - Click Translate Now
+   - Verify translation works
+
+3. Create Sample Ticket:
+   - Upload a screenshot (included: Screenshot 2026-02-16.png)
+   - Record or type an issue
+   - Click "GENERATE TICKET"
+   - View generated ticket
+
+═══════════════════════════════════════════════════════════════════════════════
+NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+After installation:
+
+1. ✅ Read QUICK_START.txt for feature overview
+2. ✅ Test microphone with voice recording
+3. ✅ Try translator with sample sentences
+4. ✅ Create your first support ticket
+5. ✅ Export and share results
+6. ✅ Check analytics and history
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎉 WELCOME TO VOICEFIX 360!
+
+For detailed usage instructions, see QUICK_START.txt
+For configuration options, see CONFIG_REFERENCE.py
+For full documentation, see README.md
+
+Version: 2.0 Enterprise Edition
+Team: Team VaniVerse
+Event: GIET Ghangapatna Hackfest 2.0
+
+═══════════════════════════════════════════════════════════════════════════════

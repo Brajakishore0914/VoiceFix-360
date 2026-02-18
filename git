@@ -1,0 +1,129 @@
+import streamlit as st
+import google.generativeai as genai
+from PIL import Image
+import tempfile
+import os
+import json
+import random  # <--- This is the fix. We import it at the top.
+
+# --- 1. CONFIGURATION ---
+# 🔑 PASTE YOUR API KEY BELOW inside the quotes
+GOOGLE_API_KEY = "GIVE_YOUR_KEY_HERE"
+
+# Configure the AI Model
+try:
+    genai.configure(api_key=GOOGLE_API_KEY)
+except Exception as e:
+    st.error(f"API Key Error: {e}")
+
+# --- 2. THE AI ENGINE ---
+def analyze_ticket(image_file, audio_path):
+    model = genai.GenerativeModel("gemini-2.0-flash-001")
+    
+    prompt = """
+    You are an expert IT Support AI named 'VoiceFix'.
+    
+    INPUT DATA:
+    1. An image of a computer screen showing a technical error.
+    2. An audio recording of a user complaining in a local Indian language.
+
+    YOUR TASKS:
+    1. VISION: Extract the exact Error Code from the screen.
+    2. AUDIO: Transcribe and Translate the speech to English.
+    3. LOGIC: Assess Severity and Domain.
+    4. REPLY: Generate a helpful reply in the user's language.
+
+    OUTPUT FORMAT (Strict JSON):
+    {
+        "ticket_title": "Short technical summary",
+        "error_code_detected": "The code from screen",
+        "user_complaint_english": "Translated speech",
+        "severity": "High",
+        "assigned_team": "Hardware/Network/Software",
+        "suggested_fix": "Technical resolution step",
+        "reply_to_user": "Reply in original language"
+    }
+    """
+
+    img = Image.open(image_file)
+    myfile = genai.upload_file(audio_path)
+
+    with st.spinner("🤖 VoiceFix is analyzing..."):
+        response = model.generate_content([prompt, img, myfile])
+    
+    return response.text
+
+# --- 3. THE UI ---
+st.set_page_config(page_title="Team VaniVerse", page_icon="🎙️", layout="wide")
+
+st.markdown("""
+    <style>
+    .stApp { background-color: #0E1117; color: #FAFAFA; }
+    .ticket-card { background-color: #262730; padding: 20px; border-radius: 10px; border-left: 5px solid #00FF00; }
+    </style>
+""", unsafe_allow_html=True)
+
+col1, col2 = st.columns([1, 4])
+with col1:
+    st.image("https://cdn-icons-png.flaticon.com/512/4712/4712035.png", width=80)
+with col2:
+    st.title("VoiceFix 360 🎙️")
+    st.caption("Team VaniVerse | GIET Ghangapatna Hackfest 2.0")
+
+st.markdown("---")
+
+c1, c2 = st.columns(2)
+with c1:
+    st.subheader("1️⃣ Show us the Problem")
+    uploaded_file = st.file_uploader("Upload Error Screenshot", type=["jpg", "png", "jpeg"])
+    if uploaded_file:
+        st.image(uploaded_file, use_container_width=True)
+
+with c2:
+    st.subheader("2️⃣ Tell us what happened")
+    st.info("Speak in English, Hindi, or Odia")
+    audio_value = st.audio_input("Record Voice Note")
+
+# --- 4. EXECUTION ---
+if st.button("🚀 CREATE TICKET", use_container_width=True):
+    if uploaded_file is not None and audio_value is not None:
+        
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_audio:
+            temp_audio.write(audio_value.getvalue())
+            temp_audio_path = temp_audio.name
+
+        try:
+            result_json_str = analyze_ticket(uploaded_file, temp_audio_path)
+            # Clean the result to ensure it is valid JSON
+            clean_json = result_json_str.replace("```json", "").replace("```", "").strip()
+            data = json.loads(clean_json)
+            
+            # Generate a random ticket ID correctly
+            ticket_id = random.randint(1000, 9999)
+
+            st.balloons()
+            st.success("✅ Ticket Generated Successfully!")
+
+            st.markdown(f"""
+            <div class="ticket-card">
+                <h3>🎫 JIRA TICKET #{ticket_id}</h3>
+                <p><b>Issue:</b> {data.get('ticket_title', 'Error')}</p>
+                <p><b>Detected Error:</b> <code>{data.get('error_code_detected', 'N/A')}</code></p>
+                <hr>
+                <p><b>🗣️ User Said:</b> "{data.get('user_complaint_english', '...')}"</p>
+                <p><b>🚑 Severity:</b> {data.get('severity', 'Medium')}</p>
+                <p><b>👷 Assigned To:</b> {data.get('assigned_team', 'Support')}</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+            st.markdown("### 🤖 Auto-Reply to User")
+            st.info(f"🔊 {data.get('reply_to_user', 'No reply generated')}")
+
+        except Exception as e:
+            st.error(f"Processing Error: {e}")
+        
+        finally:
+            if os.path.exists(temp_audio_path):
+                os.remove(temp_audio_path)
+    else:
+        st.warning("⚠️ Please upload an IMAGE and record AUDIO.")

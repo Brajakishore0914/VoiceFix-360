@@ -1,0 +1,305 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                     VoiceFix 360 - QUICK START GUIDE                       ║
+║                     Enterprise AI Support System v2.0                       ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+🚀 5-MINUTE SETUP
+=================
+
+1. INSTALL DEPENDENCIES
+   ├─ Open Command Prompt/PowerShell
+   ├─ Navigate to project folder
+   └─ Run: pip install -r requirements.txt
+
+2. CONFIGURE API KEY
+   ├─ Go to: https://aistudio.google.com/app/apikey
+   ├─ Copy your API key
+   ├─ Edit: .streamlit/secrets.toml
+   └─ Update: google_api_key = "YOUR_KEY_HERE"
+
+3. LAUNCH APP
+   ├─ Run: streamlit run app.py
+   ├─ Opens automatically at http://localhost:8501
+   └─ You're ready! ✅
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 APP INTERFACE OVERVIEW
+==========================
+
+Top Navigation:
+┌─────────────────────────────────────────────────────────────┐
+│  Tab 1: 🚀 Quick Support  │  Tab 2: 🔄 Translator  │  Tab 3: 📊 Analytics  │
+└─────────────────────────────────────────────────────────────┘
+
+LEFT SIDEBAR:
+┌──────────────────────┐
+│  ⚙️ Settings         │
+│  🎨 Theme Toggle     │
+│  🌐 Languages        │
+│  ✨ Features         │
+│  ❓ Help             │
+└──────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎯 MAIN FEATURES EXPLAINED
+===========================
+
+1️⃣  QUICK SUPPORT TAB (Main Feature)
+   
+   Step-by-Step:
+   
+   a) LEFT SIDE - Visual Input
+      ✓ Click "Upload Error Screenshot"
+      ✓ Select JPG, PNG, or JPEG from your computer
+      ✓ Image appears in preview (✅ Screenshot captured!)
+   
+   b) RIGHT SIDE - Voice Command
+      
+      Option A: 🎤 Live Recording (Recommended)
+      ├─ Choose "🎤 Live Recording"
+      ├─ Click "🎙️ START REC" button
+      ├─ Speak clearly for 15 seconds
+      ├─ Supports: English, Hindi, Odia
+      ├─ System auto-detects language
+      └─ Transcript appears automatically
+      
+      Option B: 📝 Manual Text Input
+      ├─ Choose "📝 Manual Text Input"
+      ├─ Type your issue directly
+      ├─ Use any language: English, हिंदी, ଓଡିଆ
+      └─ Auto-detected language shown
+   
+   c) GENERATE TICKET
+      ├─ Click "🛠️ GENERATE TICKET & RESOLVE"
+      ├─ Watch real-time progress (with animations)
+      ├─ Processing steps shown:
+      │  ├─ Connecting to Gemini 2.0
+      │  ├─ Analyzing visual patterns
+      │  ├─ Processing voice/text
+      │  ├─ Generating solution
+      │  └─ ✅ Complete!
+      └─ Ticket appears with full details
+   
+   d) TICKET DETAILS SHOWN
+      ├─ 🎫 Unique Ticket ID (4000-9000)
+      ├─ 📋 Issue Summary
+      ├─ 🔴 Error Code Detected
+      ├─ 💬 Your complaint (translated to English)
+      ├─ 🚨 Severity Level (High/Medium/Low)
+      ├─ 👷 Assigned Team
+      ├─ 💡 Suggested Solution
+      └─ 🌐 Original Language Detected
+   
+   e) EXPORT TICKET
+      ├─ Click "💾 Export as JSON" - Download detailed JSON
+      ├─ Click "📄 Export as Text" - Download readable text
+      └─ Share with support team or keep for records
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔄 TRANSLATOR TAB (Secondary Feature)
+=======================================
+
+Purpose: Translate between Hindi, Odia, and English
+
+How to Use:
+1. Click "Translator Studio" tab
+2. On LEFT: Enter text to translate
+3. Select source language (Auto-detect recommended)
+4. On RIGHT: Choose target language
+5. Click "🚀 Translate Now"
+6. Get instant translation below
+7. Copy and use translated text
+
+Example:
+Input: "मेरा कंप्यूटर काम नहीं कर रहा है"
+Output: "My computer is not working"
+
+Supported Pairs:
+├─ Hindi → English ✓
+├─ English → Hindi ✓
+├─ Odia → English ✓
+├─ English → Odia ✓
+├─ Hindi → Odia ✓
+└─ Odia → Hindi ✓
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📊 ANALYTICS TAB (Monitoring)
+==============================
+
+Track Your Session:
+├─ 📈 Total Tickets Created (count)
+├─ ⏱️ Session Duration (Active/Elapsed)
+├─ 🔌 API Status (✅ Connected)
+├─ 📜 Recent Ticket History
+│  ├─ Ticket ID
+│  ├─ Timestamp
+│  ├─ Issue Summary
+│  └─ Severity Level
+└─ 💾 Import/Export History
+
+═══════════════════════════════════════════════════════════════════════════════
+
+⚙️ SIDEBAR SETTINGS
+====================
+
+🎨 Theme
+├─ Dark Mode (Default - recommended)
+└─ Light Mode (high contrast)
+
+🌐 Supported Languages
+├─ 🇮🇳 Hindi (हिंदी)
+├─ 🇮🇳 Odia (ଓଡିଆ)
+└─ 🇬🇧 English
+
+✨ Premium Features (Toggle)
+├─ ☑️ Show Ticket History
+├─ ☑️ Show Translator
+├─ ☑️ Show Confidence Scores
+└─ Advanced settings...
+
+❓ Help
+└─ Interactive tutorial
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎤 VOICE RECORDING TIPS
+========================
+
+For Best Results:
+
+✅ DO:
+├─ Speak clearly and naturally
+├─ Use a quiet environment
+├─ Position microphone 6-12 inches away
+├─ Keep sentences short and simple
+├─ Speak your native language (no special accent needed)
+└─ Test microphone before recording
+
+❌ DON'T:
+├─ Whisper or speak too softly
+├─ Use in noisy environments
+├─ Rush your words
+├─ Mix languages in one sentence
+├─ Cover the microphone
+└─ Record while playing audio
+
+🎙️ Recording Process:
+1. Click "🎙️ START REC"
+2. System listens for audio
+3. Speaks automatically when complete
+4. Displays transcript
+5. Shows detected language
+6. Ready to process
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🛠️ ADVANCED FEATURES
+====================
+
+Language Auto-Detection:
+├─ Automatically detects: English, Hindi, Odia
+├─ Shows confidence percentage
+└─ Can override manually if needed
+
+Real-time Translation:
+├─ Converts to English for processing
+├─ Preserves technical terminology
+└─ Handles local idioms and context
+
+Ticket Management:
+├─ Auto-generates unique ID
+├─ Timestamped for tracking
+├─ Exportable in multiple formats
+└─ Searchable history
+
+AI Processing:
+├─ Image analysis for error codes
+├─ Speech/text processing
+├─ Severity assessment
+├─ Team assignment
+└─ Solution generation
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔐 SAFETY & PRIVACY
+====================
+
+Your Data:
+├─ Audio files deleted after processing
+├─ No permanent storage of personal info
+├─ Secure API connections
+└─ Google encryption for data transmission
+
+What We Don't Store:
+├─ Audio recordings
+├─ Personal information
+├─ Screenshots content
+└─ Conversation history
+
+What We Keep:
+├─ Ticket summaries (can be deleted)
+├─ Statistics (anonymized)
+└─ System logs (auto-purged)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+❌ TROUBLESHOOTING QUICK FIXES
+===============================
+
+Problem: Microphone not detected
+├─ Solution 1: Check Windows Settings → Privacy → Microphone (enabled?)
+├─ Solution 2: Try restarting the app
+├─ Solution 3: Use manual text input instead
+└─ Solution 4: Check if microphone is connected
+
+Problem: "API Quota Exceeded" error
+├─ Solution 1: Upgrade at https://aistudio.google.com/app/apikey
+├─ Solution 2: Wait 24 hours for reset
+└─ Solution 3: Check your current usage
+
+Problem: Speech Recognition Failed
+├─ Solution 1: Speak more clearly
+├─ Solution 2: Reduce background noise
+├─ Solution 3: Keep recording under 15 seconds
+└─ Solution 4: Type manually instead
+
+Problem: Translation not working
+├─ Solution 1: Check internet connection
+├─ Solution 2: Verify API key is set
+├─ Solution 3: Try shorter text
+└─ Solution 4: Refresh the page (F5)
+
+Problem: App won't start
+├─ Solution 1: Check Python version (3.8+)
+├─ Solution 2: Reinstall dependencies: pip install -r requirements.txt
+├─ Solution 3: Update Streamlit: pip install --upgrade streamlit
+└─ Solution 4: Check if port 8501 is available
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📞 ADDITIONAL HELP
+==================
+
+Need More Help?
+├─ Open "How to Use" in top-right of app
+├─ Check README.md for detailed documentation
+├─ Review CONFIG_REFERENCE.py for settings
+└─ Check .streamlit/secrets.toml for API setup
+
+Contact:
+├─ Team: Team VaniVerse
+├─ Event: GIET Ghangapatna Hackfest 2.0
+├─ Version: 2.0 Enterprise Edition
+└─ Date: February 2026
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎉 YOU'RE READY! Let's create your first support ticket!
+
+Start with the "Quick Support" tab and follow the 4 steps. Enjoy! 🚀
+
+═══════════════════════════════════════════════════════════════════════════════
